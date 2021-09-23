@@ -5,13 +5,14 @@ from src.Spider import Spider
 import src.utils.environment as env
 from log import log
 from src.schema.Url import Url
-from src.utils.links import links
+from src.utils.links import links, regions
 from src.schema.Champion import Champion
 
-browser = Browser(env.tor_port)
-url = Url(links[0])
+champions = []
+browser = Browser()
+url = Url(links[0],regions[0])
 spider = Spider()
-spider.crawl(url.link,browser)
+champions = spider.crawl(url,browser)
 
 
 

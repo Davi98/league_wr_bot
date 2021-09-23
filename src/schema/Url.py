@@ -2,10 +2,11 @@ from datetime import datetime,date
 import re
 
 class Url:
-    def __init__(self,link):
+    def __init__(self,link,region):
         
         self.link = link
-        # self.region = re.search("=(.+?)&",link)
-        # self.elo = re.search(".*?(=)",link)
+        self.region = region
+        # self.elo = elo
+        # self.lane = lane
 
         
