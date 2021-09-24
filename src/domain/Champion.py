@@ -13,3 +13,5 @@ class Champion:
         self.region = region
         self.patch = patch
         self.date = datetime.utcnow()
+
+

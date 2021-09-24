@@ -6,7 +6,6 @@ class Url:
         
         self.link = link
         self.region = region
-        # self.elo = elo
-        # self.lane = lane
+
 
         
