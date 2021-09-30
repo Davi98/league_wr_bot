@@ -23,5 +23,5 @@ ENV PATH "/app:${PATH}"
 RUN pip install --upgrade pip &&\
     pip install -r requirements.txt
 
-CMD ["app.py"]
-ENTRYPOINT ["python3"]
+#CMD ["app.py"]
+#ENTRYPOINT ["python3"]
