@@ -24,12 +24,14 @@ class TierList():
                 champ.rank = ranks[2]
                 mid_list.append(champ)
                 ranks[2] +=1
-            elif champ.role == "BOT":
+            elif champ.role == "ADC":
                 champ.rank = ranks[3]
+                champ.role = "BOT"
                 bot_list.append(champ)
                 ranks[3] +=1
-            elif champ.role == "SUP":
+            elif champ.role == "SUPP":
                 champ.rank = ranks[4]
+                champ.role = "SUP"
                 sup_list.append(champ)
                 ranks[4] +=1
     

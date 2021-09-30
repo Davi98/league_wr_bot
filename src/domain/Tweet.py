@@ -10,7 +10,7 @@ class Tweet:
 
     def create_first_tweet(self,champion):
         log().debug("Creating the first champion tweet:")
-        first_text = f"Champions stats in diamond plus solo queue at {champion.region} server in patch {champion.patch}:\n\n\n"
+        first_text = f"Champions stats in {champion.role} lane at diamond plus solo queue in {champion.region} server at {champion.patch} patch:\n\n\n"
         second_text,image = self.create_champ_tweet_with_image(champion)
         
         tweet = first_text + second_text
@@ -32,13 +32,13 @@ class Tweet:
     
     def search_image(self,champion_name):
         champion_name = champion_name.replace(" ", "")
+        champion_name = champion_name.replace("'", "")
         image = f"./img/{champion_name}.jpg"
         return image
 
 
 
     def post(self,role_tier_list):
-        log().info(self.api)
         try:
             for i in range(len(role_tier_list)):
                 if i == 0:

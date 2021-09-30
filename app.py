@@ -18,7 +18,7 @@ access_token_secret = os.environ.get("ACCESS_TOKEN_SECRET")
 
 
 api = Twitter(consumer_key,consumer_secret,access_token,access_token_secret).auth()
-log().info(api)
+
 
 spider = Spider()
 browser = Browser()
@@ -30,6 +30,8 @@ champions = spider.crawl(url,browser)
 log().info(f"Finish crawling, crawler get stats of {len(champions)} champions in {region} region")
 
 top_tier_list,jungle_tier_list,mid_tier_list,bot_tier_list,sup_tier_list = TierList().sort_by_lane(champions)
+
+
 
 
 log().info("Starting tweeting top tier list champions")
