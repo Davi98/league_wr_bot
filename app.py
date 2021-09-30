@@ -18,7 +18,7 @@ access_token_secret = os.environ.get("ACCESS_TOKEN_SECRET")
 
 
 api = Twitter(consumer_key,consumer_secret,access_token,access_token_secret).auth()
-print(api)
+log().info(api)
 
 spider = Spider()
 browser = Browser()

@@ -38,6 +38,7 @@ class Tweet:
 
 
     def post(self,role_tier_list):
+        log().info(self.api)
         try:
             for i in range(len(role_tier_list)):
                 if i == 0:
