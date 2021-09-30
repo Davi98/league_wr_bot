@@ -1,6 +1,7 @@
 import logging
 import sys
-import src.utils.environment as env
+import os
+
 
 
 logging.basicConfig(
@@ -10,9 +11,9 @@ logging.basicConfig(
         level=logging.INFO)
 logging.getLogger().setLevel(logging.INFO)
 
+debug = os.environ.get("DEBUG")
 
-
-if str(env.debug).lower() in ['1', 'true', 'yes']:
+if str(debug).lower() in ['1', 'true', 'yes']:
     logging.getLogger().setLevel(logging.DEBUG)
 else:
     logging.getLogger().setLevel(logging.INFO)
