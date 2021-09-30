@@ -9,11 +9,7 @@ from itertools import zip_longest
 
 class Spider:
     
-    def __init__(self):
 
-        self.mongo_repository = None
-
-    
     def crawl(self,url,browser):
         try:
             index = 0
@@ -31,9 +27,13 @@ class Spider:
             log().debug("Scrolling down page to access more champions in the list")
             self.scroll_down(browser)
 
+
+            log().debug("Crawling patch number")
             patch = browser.driver.find_element_by_xpath("//div[@class='header-patch media-query media-query_TABLET__DESKTOP_LARGE']").text
             patch = (patch.replace("Patch ",""))
 
+
+            log().debug("Crawling champions infos")
             names = browser.driver.find_elements_by_xpath("//a[@class='champion-played gtm-tierlist-champion']//strong")
             roles = browser.driver.find_elements_by_xpath("//img[@class='tier-list-role']")
             

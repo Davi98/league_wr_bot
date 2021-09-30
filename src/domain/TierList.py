@@ -1,8 +1,9 @@
-
+from log import log
 
 class TierList():
 
     def sort_by_lane(self,champions):
+        log().debug("Sorting champions by lanes")
         top_list = []
         jungle_list = []
         mid_list = []
