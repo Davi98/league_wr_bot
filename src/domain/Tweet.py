@@ -33,8 +33,11 @@ class Tweet:
     def search_image(self,champion_name):
         champion_name = champion_name.replace(" ", "")
         champion_name = champion_name.replace("'", "")
-        image = f"./img/{champion_name}.jpg"
-        return image
+        filename = f"./img/{champion_name}.jpg"
+        media_ids = []
+        res = self.api.media_upload(filename)
+        media_ids.append(res.media_id)
+        return media_ids
 
 
 
@@ -43,13 +46,15 @@ class Tweet:
             for i in range(len(role_tier_list)):
                 if i == 0:
                     status,image = self.create_first_tweet(role_tier_list[i])
-                    post = self.api.update_with_media(image, status)
+                    post = self.api.update_status(status=status,media_ids=image)
                 elif 0<i<=9:
                     status,image = self.create_champ_tweet_with_image(role_tier_list[i])
-                    post = self.api.update_with_media(image,status,in_reply_to_status_id = post._json['id'])
+                    post = self.api.update_status(status=status,media_ids=image,in_reply_to_status_id = post._json['id'])
                 else:
                     status =  self.create_champ_tweet(role_tier_list[i])
-                    post = self.api.update_status(status,in_reply_to_status_id = post._json['id'])
+                    post = self.api.update_status(status=status,in_reply_to_status_id = post._json['id'])
 
         except Exception as err:
             log().error(f"Error posting in twitter : {type(err)} > {err}")
+
+

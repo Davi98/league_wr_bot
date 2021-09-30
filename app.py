@@ -32,12 +32,11 @@ log().info(f"Finish crawling, crawler get stats of {len(champions)} champions in
 top_tier_list,jungle_tier_list,mid_tier_list,bot_tier_list,sup_tier_list = TierList().sort_by_lane(champions)
 
 
-api.update_with_media("./img/Galio.jpg","Olá mundo")
 
-# log().info("Starting tweeting top tier list champions")
-# tweet.post(top_tier_list)
-# time.sleep(10)
-# log().info(f"Posted {len(top_tier_list)} tweets for top tier list ")
+log().info("Starting tweeting top tier list champions")
+tweet.post(top_tier_list)
+time.sleep(10)
+log().info(f"Posted {len(top_tier_list)} tweets for top tier list ")
 
 # log().info("Starting tweeting jungle tier list champions")
 # tweet.post(jungle_tier_list)
