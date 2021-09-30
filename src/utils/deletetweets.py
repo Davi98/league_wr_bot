@@ -1,11 +1,14 @@
 from src.infra.twitter.Twitter import Twitter
 import tweepy as tw
- 
+from dotenv import load_dotenv
+import os
 
-consumer_key = 'OYvAoUGa8l1pXUj7Xljme89WO'
-consumer_secret = 'KT2CbZwYIkijDufRjPc4BJY9CwNEIeBCsJg97IpzqN6FUSdksf'
-access_token = '1438506500570292229-5KBubRYZ04MsyDSWf4LXPEBe0cVmFc'
-access_token_secret = 'wKkMD4JnKlH0FWWN6V6CwOWSObBWWWs04pzHaKMOwiMx6'
+load_dotenv()
+consumer_key = os.environ.get("CONSUMER_KEY")
+consumer_secret = os.environ.get("CONSUMER_SECRET")
+access_token = os.environ.get("ACCESS_TOKEN")
+access_token_secret = os.environ.get("ACCESS_TOKEN_SECRET")
+
 
 
 api = Twitter(consumer_key,consumer_secret,access_token,access_token_secret).auth()
@@ -13,3 +16,4 @@ api = Twitter(consumer_key,consumer_secret,access_token,access_token_secret).aut
 for status in tw.Cursor(api.user_timeline).items():
     api.destroy_status(status.id)
 
+# python -m src.utils.deletetweets

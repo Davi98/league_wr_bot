@@ -25,6 +25,8 @@ class Tweet:
     
     
     def search_image(self,champion_name):
+        champion_name = champion_name.replace(" ", "")
+        print(champion_name)
         image = f"./img/{champion_name}.jpg"
         return image
 

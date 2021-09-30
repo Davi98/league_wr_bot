@@ -6,6 +6,7 @@ from src.domain.TierList import TierList
 from src.domain.Tweet import Tweet
 from src.infra.twitter.Twitter import Twitter
 from dotenv import load_dotenv
+import time
 import os
 
 load_dotenv()
@@ -31,4 +32,14 @@ top_tier_list,jungle_tier_list,mid_tier_list,bot_tier_list,sup_tier_list = TierL
 
 
 tweet.post(top_tier_list)
+time.sleep(10)
+tweet.post(jungle_tier_list)
+time.sleep(10)
+tweet.post(mid_tier_list)
+time.sleep(10)
+tweet.post(bot_tier_list)
+time.sleep(10)
+tweet.post(sup_tier_list)
+
+
 
