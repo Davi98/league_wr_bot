@@ -48,9 +48,6 @@ class Tweet:
                 if i == 0:
                     status,image = self.create_first_tweet(role_tier_list[i])
                     post = self.api.update_status(status=status,media_ids=image)
-                elif 0<i<=9:
-                    status,image = self.create_champ_tweet_with_image(role_tier_list[i])
-                    post = self.api.update_status(status=status,media_ids=image,in_reply_to_status_id = post._json['id'])
                 else:
                     status,image =  self.create_champ_tweet_with_image(role_tier_list[i])
                     post = self.api.update_status(status=status,media_ids=image,in_reply_to_status_id = post._json['id'])
