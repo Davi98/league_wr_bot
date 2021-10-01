@@ -33,6 +33,7 @@ class Tweet:
     def search_image(self,champion_name):
         champion_name = champion_name.replace(" ", "")
         champion_name = champion_name.replace("'", "")
+        champion_name = champion_name.replace(".", "")
         filename = f"./img/{champion_name}.jpg"
         media_ids = []
         res = self.api.media_upload(filename)
@@ -51,8 +52,8 @@ class Tweet:
                     status,image = self.create_champ_tweet_with_image(role_tier_list[i])
                     post = self.api.update_status(status=status,media_ids=image,in_reply_to_status_id = post._json['id'])
                 else:
-                    status =  self.create_champ_tweet(role_tier_list[i])
-                    post = self.api.update_status(status=status,in_reply_to_status_id = post._json['id'])
+                    status,image =  self.create_champ_tweet_with_image(role_tier_list[i])
+                    post = self.api.update_status(status=status,media_ids=image,in_reply_to_status_id = post._json['id'])
 
         except Exception as err:
             log().error(f"Error posting in twitter : {type(err)} > {err}")
