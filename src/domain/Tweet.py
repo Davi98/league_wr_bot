@@ -19,7 +19,7 @@ class Tweet:
 
     def create_champ_tweet_with_image(self,champion):
         log().debug(f"Creating tweet with image from  the {champion.name} in {champion.rank}º rank at {champion.role} lane")
-        text = f"{champion.name} is the rank: {champion.rank}º at {champion.role} lane with {champion.win_rate} win rate, {champion.pick_rate} pick rate and {champion.ban_rate} ban rate in {champion.num_matches} matches"
+        text = f"{champion.name} is the rank: {champion.rank} at the {champion.role} lane with a {champion.win_rate} win rate, {champion.pick_rate} pick rate and {champion.ban_rate} ban rate in {champion.num_matches} matches"
         image = self.search_image(champion.name)
         return text, image
 
