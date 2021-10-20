@@ -4,6 +4,9 @@
 ## Tecnologia utilizada
 A aplicação foi construída usando python 3 em conjunto com a biblioteca Selenium e tweepy.
 
+## A página do twitter pode ser acessada a partir desse link:
+https://twitter.com/bot_wr_lol
+
 
 
 
